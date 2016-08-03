@@ -1782,6 +1782,27 @@ public interface SpotifyService {
     Pager<Track> getTopTracks();
 
     /**
+     * Get audio features for several tracks
+     *
+     * @param options Optional parameters. For list of available parameters see
+     *                 <a href="https://developer.spotify.com/web-api/get-audio-features/">endpoint documentation</a>
+     * @param callback Callback method
+     * @return
+     */
+    @GET("/audio-features")
+    Pager<Track> getAudioFeaturesForSeveralTracks(@QueryMap Map<String, Object> options, Callback<Pager<Track>> callback);
+
+    /**
+     * Get audio features for a specific track
+     *
+     * @param trackId The ID of the track
+     * @param callback Callback method
+     * @return
+     */
+    @GET("/audio-features/{id}")
+    Pager<Track> getAudioFeaturesForSeveralTracks(@Path("id") String trackId, Callback<Pager<Track>> callback);
+
+    /**
      * Get the current user’s top tracks based on calculated affinity.
      *
      * @param callback callback method
